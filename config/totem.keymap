@@ -11,6 +11,8 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/totem.h"
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
@@ -31,24 +33,50 @@
 };
 
 &lt {
-    tapping-term-ms = <240>;
-    flavor = "balanced";
-    quick-tap-ms = <150>;
+  flavor = "balanced";
+  tapping-term-ms = <200>;
+  quick-tap-ms = <175>;
 };
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
+	behaviors {
+		uc: unicode {
+            compatible = "zmk,behavior-unicode";
         };
-    };
+		hml: home_row_mod_left {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			require-prior-idle-ms = <150>;
+			tapping-term-ms = <280>;
+			quick-tap-ms = <175>;
+			bindings = <&kp>, <&kp>;
+			hold-trigger-key-positions = <
+				RT0 RT1 RT2 RT3 RT4
+				RM0 RM1 RM2 RM3 RM4
+				RB0 RB1 RB2 RB3 RB4 RB5
+				RH0 RH1 RH2
+			>; // List of keys on the right side of the keyboard
+			hold-trigger-on-release;
+		};
+		hmr: home_row_mod_right {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			require-prior-idle-ms = <150>;
+			tapping-term-ms = <280>;
+			quick-tap-ms = <175>;
+			bindings = <&kp>, <&kp>;
+			hold-trigger-key-positions = <
+			LT0 LT1 LT2 LT3 LT4
+			LM0 LM1 LM2 LM3 LM4
+		LB0 LB1 LB2 LB3 LB4 LB5
+					LH0 LH1 LH2
+
+			>; // List of keys on the left side of the keyboard
+			hold-trigger-on-release;
+		};
+	};
 
     combos { compatible = "zmk,combos"; };
 
@@ -58,10 +86,10 @@
         Base {
             display-name = "Base";
             bindings = <
-            &kp Q       &kp W       &kp E          &kp R         &kp T          &kp Y         &kp U        &kp I            &kp O       &kp P
-            &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHIFT F  &kp G          &kp H         &hm RSHFT J  &hm RCTRL K      &hm RALT L  &hm RGUI SEMICOLON
-&kp ESCAPE  &kp Z       &kp X       &kp C          &kp V         &kp B          &kp N         &kp M        &kp COMMA        &kp DOT     &kp SLASH           &kp APOSTROPHE
-                                    &mt LCTRL TAB  &to 2         &lt 4 SPACE    &lt 3 RETURN  &to 1        &lt 5 BACKSPACE
+            &kp Q        &kp W        &kp E           &kp R          &kp T          &kp Y         &kp U         &kp I             &kp O        &kp P
+            &hml LGUI A  &hml LALT S  &hml LCTRL D    &hml LSHIFT F  &kp G          &kp H         &hmr RSHFT J  &hmr RCTRL K      &hmr RALT L  &hmr RGUI SEMICOLON
+&kp ESCAPE  &kp Z        &kp X        &kp C           &kp V          &kp B          &kp N         &kp M         &kp COMMA         &kp DOT      &kp SLASH           &kp APOSTROPHE
+                                      &mt LCTRL TAB   &to 2          &lt 4 SPACE    &lt 3 RETURN  &to 1         &lt 5 BACKSPACE
             >;
         };
 
@@ -70,7 +98,7 @@
             bindings = <
                 &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS    &trans  &trans      &trans     &trans    &trans
                 &kp ASTERISK  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS     &trans  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LEFT_GUI
-&studio_unlock  &kp TILDE     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL    &trans  &trans      &trans     &trans    &trans        &trans
+&trans			&kp TILDE     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL    &trans  &trans      &trans     &trans    &trans        &trans
                                             &kp PERIOD    &kp NUMBER_0  &trans       &trans  &trans      &trans
             >;
         };
@@ -78,7 +106,7 @@
         Symbols {
             display-name = "Symbols";
             bindings = <
-           &kp F1          &kp F2       &kp F3            &kp F4                &kp F5            &kp F8           &kp F9                 &kp F10            &kp F11    &kp F12
+           &uc 20AC        &uc 00A3     &uc 00B0          &uc 00B1              &uc 2022          &uc 2014         &uc 2013               &uc 00A7           &uc 2122   &uc 2026
            &kp EXCL        &kp AT_SIGN  &kp HASH          &kp DOLLAR            &kp PERCENT       &kp CARET        &kp AMPERSAND          &kp ASTERISK       &kp MINUS  &kp EQUAL
 &kp TILDE  &kp UNDERSCORE  &kp PIPE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS   &kp BACKSLASH  &kp GRAVE
                                         &trans            &trans                &trans            &trans           &trans                 &kp DELETE
