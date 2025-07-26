@@ -77,8 +77,8 @@
             bindings = <
             &kp Q        &kp W        &kp E            &kp R          &kp T          &kp Y         &kp U				&kp I             &kp O        &kp P
             &hml LGUI A  &hml LALT S  &hml LCTRL D     &hml LSHIFT F  &kp G          &kp H         &hmr RSHFT J		&hmr RCTRL K      &hmr RALT L  &hmr RGUI SEMICOLON
-&kp ESCAPE  &kp Z        &kp X        &kp C            &kp V          &kp B          &kp N         &kp M				&kp COMMA         &kp DOT      &kp SLASH           &kp APOSTROPHE
-                                      &mt LCTRL DELETE &lt 2 TAB      &lt 4 SPACE    &lt 3 RETURN  &lt 1 BACKSPACE	&lt 5 LGUI
+&trans  &kp Z        &kp X        &kp C            &kp V          &kp B          &kp N         &kp M				&kp COMMA         &kp DOT      &kp SLASH           &trans
+                                      &mt LCTRL ESCAPE &lt 2 TAB      &lt 4 SPACE    &lt 3 RETURN  &lt 1 BACKSPACE	&lt 5 APOSTROPHE
             >;
         };
 
@@ -97,8 +97,8 @@
             bindings = <
            &kp F1          &kp F2       &kp F3            &kp F4                &kp F5            &kp F8           &kp F9                 &kp F10            &kp F11    &kp F12
            &kp EXCL        &kp AT_SIGN  &kp HASH          &kp DOLLAR            &kp PERCENT       &kp CARET        &kp AMPERSAND          &kp ASTERISK       &kp MINUS  &kp EQUAL
-&kp TILDE  &kp UNDERSCORE  &kp PIPE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS   &kp BACKSLASH  &kp GRAVE
-                                        &trans            &trans                &trans            &trans           &trans                 &trans
+&trans  &kp UNDERSCORE  &kp PIPE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS   &kp BACKSLASH  &trans
+                                        &kp TILDE            &trans                &trans            &trans           &trans                 &kp GRAVE
             >;
         };
 
