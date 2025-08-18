@@ -29,16 +29,16 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4 RB5 // Right-hand keys.
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2   
 &mt {
-    quick-tap-ms = <100>;
+    quick-tap-ms = <150>;
     global-quick-tap;
     flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+    tapping-term-ms = <200>;
 };
 
 &lt {
   flavor = "balanced";
   tapping-term-ms = <200>;
-  quick-tap-ms = <175>;
+  quick-tap-ms = <150>;
 };
 
 / {
@@ -47,9 +47,9 @@
 			compatible = "zmk,behavior-hold-tap";
 			#binding-cells = <2>;
 			flavor = "balanced";
-			require-prior-idle-ms = <150>;
-			tapping-term-ms = <280>;
-			quick-tap-ms = <175>;
+			require-prior-idle-ms = <120>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <150>;
 			bindings = <&kp>, <&kp>;
 			hold-trigger-key-positions = <KEYS_R THUMBS>; // List of keys on the right side of the keyboard
 			hold-trigger-on-release;
@@ -58,9 +58,9 @@
 			compatible = "zmk,behavior-hold-tap";
 			#binding-cells = <2>;
 			flavor = "balanced";
-			require-prior-idle-ms = <150>;
-			tapping-term-ms = <280>;
-			quick-tap-ms = <175>;
+			require-prior-idle-ms = <120>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <150>;
 			bindings = <&kp>, <&kp>;
 			hold-trigger-key-positions = <KEYS_L THUMBS>; // List of keys on the left side of the keyboard
 			hold-trigger-on-release;
@@ -77,8 +77,8 @@
             bindings = <
             &kp Q        &kp W        &kp E            &kp R          &kp T          &kp Y         &kp U				&kp I             &kp O        &kp P
             &hml LGUI A  &hml LALT S  &hml LCTRL D     &hml LSHIFT F  &kp G          &kp H         &hmr RSHFT J		&hmr RCTRL K      &hmr RALT L  &hmr RGUI SEMICOLON
-&trans  &kp Z        &kp X        &kp C            &kp V          &kp B          &kp N         &kp M				&kp COMMA         &kp DOT      &kp SLASH           &trans
-                                      &mt LCTRL ESCAPE &lt 2 TAB      &lt 4 SPACE    &lt 3 RETURN  &lt 1 BACKSPACE	&lt 5 APOSTROPHE
+&kp ESCAPE  &kp Z        &kp X        &kp C            &kp V          &kp B          &kp N         &kp M				&kp COMMA         &kp DOT      &kp SLASH           &kp APOSTROPHE
+                                      &mt LCTRL DELETE &lt 2 TAB      &lt 4 SPACE    &lt 3 RETURN  &lt 1 BACKSPACE	&lt 5 APOSTROPHE
             >;
         };
 
@@ -87,7 +87,7 @@
             bindings = <
                 &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS    &trans  &trans      &trans     &trans    &trans
                 &kp ASTERISK  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS     &trans  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LEFT_GUI
-&trans			&kp TILDE     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL    &trans  &trans      &trans     &trans    &trans        &trans
+&kp ESCAPE		&kp TILDE     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL    &trans  &trans      &trans     &trans    &trans        &trans
                                             &kp PERIOD    &kp NUMBER_0  &trans       &trans  &trans      &trans
             >;
         };
@@ -97,8 +97,8 @@
             bindings = <
            &kp F1          &kp F2       &kp F3            &kp F4                &kp F5            &kp F8           &kp F9                 &kp F10            &kp F11    &kp F12
            &kp EXCL        &kp AT_SIGN  &kp HASH          &kp DOLLAR            &kp PERCENT       &kp CARET        &kp AMPERSAND          &kp ASTERISK       &kp MINUS  &kp EQUAL
-&trans  &kp UNDERSCORE  &kp PIPE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS   &kp BACKSLASH  &trans
-                                        &kp TILDE            &trans                &trans            &trans           &trans                 &kp GRAVE
+&kp TILDE  &kp UNDERSCORE  &kp PIPE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS   &kp BACKSLASH  &kp GRAVE
+                                        &trans            &trans                &trans            &trans           &trans                 &kp GRAVE
             >;
         };
 
