@@ -42,7 +42,18 @@
 };
 
 / {
+    caps_word {
+        continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
+    };
 	behaviors {
+        lt_cw: layer_tap_caps_word {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&caps_word>;
+        };
 		hml: home_row_mod_left {
 			compatible = "zmk,behavior-hold-tap";
 			#binding-cells = <2>;
@@ -78,7 +89,7 @@ keymap {
             &kp Q        &kp W        &kp E             &kp R          &kp T          &kp Y         &kp U            &kp I         &kp O        &kp P
             &hml LGUI A  &hml LALT S  &hml LCTRL D      &hml LSHIFT F  &kp G          &kp H         &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMICOLON
 &kp ESCAPE  &kp Z        &kp X        &kp C             &kp V          &kp B          &kp N         &kp M            &kp COMMA     &kp DOT      &kp SLASH            &kp APOSTROPHE
-                                      &mt LCTRL DELETE  &lt 3 TAB      &lt 2 SPACE    &lt 2 RETURN  &lt 1 BACKSPACE  &tog 5
+                                      &mt LCTRL DELETE  &lt 3 TAB      &lt 2 SPACE    &lt 2 RETURN  &lt 1 BACKSPACE  &lt_cw 4
             >;
         };
         Num {
@@ -113,7 +124,7 @@ keymap {
 
         Fn {
             bindings = <
-        &bt BT_CLR   &kp F7  &kp F8  &kp F9  &kp F10    &trans        &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans        &trans
+        &bt BT_CLR   &kp F7  &kp F8  &kp F9  &kp F10    &tog 5        &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans        &trans
         &bootloader  &kp F4  &kp F5  &kp F6  &kp F11    &kp C_REWIND  &kp C_VOL_DN          &kp C_VOL_UP          &kp C_FF      &trans
 &trans  &sys_reset   &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1          &bt BT_SEL 2          &bt BT_SEL 3  &trans  &trans
                              &trans  &trans  &trans     &trans        &trans                &trans
@@ -127,7 +138,7 @@ keymap {
         &kp TAB           &kp Q  &kp W   &kp E   &kp R        &trans  &trans  &trans  &trans  &trans
         &kp LEFT_SHIFT    &kp A  &kp S   &kp D   &kp F        &trans  &trans  &trans  &trans  &trans
 &trans  &kp LEFT_CONTROL  &kp Z  &kp X   &kp C   &kp V        &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans  &trans  &kp SPACE    &trans  &trans  &trans
+                                 &tog 5  &trans  &kp SPACE    &trans  &trans  &trans
             >;
 
             display-name = "Gaming";
