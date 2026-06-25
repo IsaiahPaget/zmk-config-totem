@@ -111,10 +111,10 @@ keymap {
         Symbols {
             display-name = "Symbols";
             bindings = <
-        &kp EXCLAMATION &kp AT_SIGN            &kp HASH                           &kp DOLLAR            &kp PERCENT       &kp CARET &kp AMPERSAND                &kp ASTERISK                          &trans                        &trans
-        &trans          &hml LALT LEFT_BRACKET &hml LEFT_CONTROL LEFT_PARENTHESIS &hml LSHFT LEFT_BRACE &trans            &trans    &hmr RIGHT_SHIFT RIGHT_BRACE &hmr RIGHT_CONTROL RIGHT_PARENTHESIS  &hmr RIGHT_ALT RIGHT_BRACKET  &trans
-&trans  &kp TILDE       &kp GRAVE              &kp UNDERSCORE                     &kp MINUS             &trans            &trans    &kp PLUS                     &kp EQUAL                             &kp PIPE                      &kp BACKSLASH       &trans
-                                               &trans                             &trans                &trans            &trans    &trans                       &trans
+        &kp EXCLAMATION &kp AT_SIGN            &kp HASH                           &kp DOLLAR            &kp PERCENT       &kp CARET &kp AMPERSAND                  &kp ASTERISK                         &trans                        &trans
+        &kp UNDERSCORE  &hml LALT LEFT_BRACKET &hml LEFT_CONTROL LEFT_PARENTHESIS &hml LSHFT LEFT_BRACE &kp MINUS         &kp PLUS  &hmr RIGHT_SHIFT RIGHT_BRACE   &hmr RIGHT_CONTROL RIGHT_PARENTHESIS &hmr RIGHT_ALT RIGHT_BRACKET  &kp EQUAL
+&trans  &trans          &trans                 &kp TILDE                          &kp GRAVE             &trans            &trans    &kp PIPE                       &kp BACKSLASH                        &trans                        &trans    &trans
+                                               &trans                             &trans                &trans            &trans    &trans                         &trans
             >;
         };
 
