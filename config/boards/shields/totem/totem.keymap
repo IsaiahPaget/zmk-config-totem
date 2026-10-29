@@ -94,7 +94,7 @@ keymap {
             bindings = <
             &kp Q        &kp W        &kp E             &kp R          &kp T          &kp Y         &kp U            &kp I         &kp O        &kp P
             &hml LGUI A  &hml LALT S  &hml LCTRL D      &hml LSHIFT F  &kp G          &kp H         &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMICOLON
-&kp ESCAPE  &kp Z        &kp X        &kp C             &kp V          &kp B          &kp N         &kp M            &kp COMMA     &kp DOT      &kp SLASH            &kp APOSTROPHE
+&lt 4 ESCAPE  &kp Z        &kp X        &kp C             &kp V          &kp B          &kp N         &kp M            &kp COMMA     &kp DOT      &kp SLASH            &kp APOSTROPHE
                                       &mt LCTRL DELETE  &lt 3 TAB      &kp SPACE    &lt 2 RETURN  &lt 1 BACKSPACE  &lt_tog 4 5
             >;
         };
@@ -132,7 +132,7 @@ keymap {
             bindings = <
         &bt BT_CLR   &kp F7  &kp F8  &kp F9  &kp F10    &trans        &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans        &trans
         &bootloader  &kp F4  &kp F5  &kp F6  &kp F11    &kp C_REWIND  &kp C_VOL_DN          &kp C_VOL_UP          &kp C_FF      &trans
-&trans  &sys_reset   &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1          &bt BT_SEL 2          &bt BT_SEL 3  &trans  &trans
+&trans  &sys_reset   &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1          &bt BT_SEL 2          &bt BT_SEL 3  &out OUT_USB  &out OUT_BLE
                              &trans  &trans  &trans     &trans        &trans                &trans
             >;
 
